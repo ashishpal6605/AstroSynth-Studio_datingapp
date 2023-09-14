@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.OtpActivity">
+
+    <LinearLayout
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btncontainer">
+
+        <ImageView
+            android:id="@+id/backbtn"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/righticon" />
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="40dp"
+        android:fontFamily="@font/headingbold"
+        android:text="00:42"
+        android:textColor="@color/black"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/txtviewotp"
+        android:layout_width="wrap_content"
+        android:layout_height="51dp"
+        android:layout_below="@id/timer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:fontFamily="@font/headingregular"
+        android:text="Type the verification code \n         we’ve sent you"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+
+    <RelativeLayout
+        android:id="@+id/otp_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtviewotp"
+        android:gravity="center">
+
+
+        <EditText
+            android:id="@+id/pin1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/btncontainer"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/pin2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/pin1"
+            android:background="@drawable/btncontainer"
+            android:gravity="center"
+            android:inputType="number"
+
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/pin3"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/pin2"
+            android:background="@drawable/btncontainer"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/pin4"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/pin3"
+            android:background="@drawable/btncontainer"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/pin5"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/pin4"
+            android:background="@drawable/btncontainer"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/pin6"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="3dp"
+            android:layout_toEndOf="@id/pin5"
+            android:background="@drawable/btncontainer"
+            android:gravity="center"
+            android:inputType="number"
+            android:maxLength="1"
+            android:maxLines="1"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/otp_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/primaryColour"
+        android:fontFamily="@font/headingmono"
+        android:text="continue"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnContinue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/headingbold"
+        android:gravity="center_horizontal"
+        android:text="Resend otp "
+        android:textColor="@color/primaryColour"
+        android:textSize="20sp" />
+
+</RelativeLayout>

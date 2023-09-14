@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><!-- res/layout/indicator.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/indicatorLayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <!-- Indicator dots will be added dynamically here -->
+
+</LinearLayout>

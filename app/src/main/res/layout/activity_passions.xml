@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.PassionsActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:id="@+id/backbtn"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:background="@drawable/btncontainer">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/righticon" />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/headingbold"
+            android:text="Skip"
+            android:textColor="@color/primaryColour"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topbar"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/headingbold"
+        android:text="Your Interest"
+        android:textColor="@color/black"
+        android:textSize="34sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt1"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="40dp"
+        android:fontFamily="@font/headingregular"
+        android:text="Select a few of your interests and let everyone know what you’re passionate about."
+        android:textColor="@color/grey"
+        android:textSize="14sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txt2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt2"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/photography"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Photography"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/shooping"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Shopping"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout1"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/karaoke"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Karaoke"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/yoga"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Yoga"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout2"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/cooking"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Cooking"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/tennis"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Tennis"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout3"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/run"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Run"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/swimming"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="swimming"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout4"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/art"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Art"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/traveling"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Traveling"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout5"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/parachute"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Extreme"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/music"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Music"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout6"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/drink"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Drink"
+                    android:textSize="14sp" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/txtbg"
+                    android:drawableLeft="@drawable/game"
+                    android:fontFamily="@font/headingregular"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="Video games"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:backgroundTint="@color/primaryColour"
+                android:text="Continue" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

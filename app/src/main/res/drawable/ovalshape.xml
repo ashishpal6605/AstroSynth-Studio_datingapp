@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><!-- drawable/oval.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="38dp"
+    android:height="38dp"
+    android:viewportWidth="38"
+    android:viewportHeight="38">
+    <group>
+        <clip-path android:pathData="M36 19C36 28.3888 28.3888 36 19 36C9.61116 36 2 28.3888 2 19C2 9.61116 9.61116 2 19 2C28.3888 2 36 9.61116 36 19Z" />
+        <path
+            android:fillColor="#E94057"
+            android:pathData="M2 2V36H36V2" />
+    </group>
+    <group>
+        <clip-path android:pathData="M0 0V38H38V0M36 19C36 28.3888 28.3888 36 19 36C9.61116 36 2 28.3888 2 19C2 9.61116 9.61116 2 19 2C28.3888 2 36 9.61116 36 19Z" />
+        <path
+            android:pathData="M36 19C36 28.3888 28.3888 36 19 36C9.61116 36 2 28.3888 2 19C2 9.61116 9.61116 2 19 2C28.3888 2 36 9.61116 36 19Z"
+            android:strokeWidth="4"
+            android:strokeColor="#FFFFFF" />
+    </group>
+</vector>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/discover"
+        android:icon="@drawable/groupicon"
+        android:title="Discover" />
+    <item
+        android:id="@+id/matches"
+        android:icon="@drawable/like"
+        android:title="Matches" />
+    <item
+        android:id="@+id/message"
+        android:icon="@drawable/message"
+        android:title="Message" />
+    <item
+        android:id="@+id/person"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Person" />
+</menu>
