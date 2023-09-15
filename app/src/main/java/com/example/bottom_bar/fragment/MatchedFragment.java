@@ -6,60 +6,57 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bottom_bar.Adapter.MatchedFragmentAdapter;
+import com.example.bottom_bar.Model.MatchedModel;
 import com.example.bottom_bar.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MatchedFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class MatchedFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public MatchedFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SettingFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MatchedFragment newInstance(String param1, String param2) {
-        MatchedFragment fragment = new MatchedFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_matched, container, false);
+        View view = inflater.inflate(R.layout.fragment_matched, container, false);
+
+        RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2)); // Adjust the spanCount as needed for your grid
+
+        // Create some dummy data
+        List<MatchedModel> dummyDataList = new ArrayList<>();
+        dummyDataList.add(new MatchedModel(R.drawable.girl1, "Item 1"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl2, "Item 2"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl3, "Item 3"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl3, "Item 3"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl3, "Item 3"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl3, "Item 3"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl3, "Item 3"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl3, "Item 3"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl3, "Item 3"));
+        dummyDataList.add(new MatchedModel(R.drawable.girl3, "Item 3"));
+
+        // Set the dummy data in the adapter
+        MatchedFragmentAdapter adapter = new MatchedFragmentAdapter(dummyDataList);
+        recyclerView.setAdapter(adapter);
+
+        return view;
     }
 }
