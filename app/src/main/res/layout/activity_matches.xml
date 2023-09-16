@@ -3,13 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".Activity.MatchesActivity">
 
 
     <ImageView
         android:id="@+id/imgview"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_width="340dp"
+        android:layout_height="340dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
         android:src="@drawable/matchesimg" />
 
 
@@ -20,6 +23,7 @@
         android:layout_below="@id/imgview"
         android:fontFamily="@font/headingbold"
         android:text="It’s a match, Jake!"
+        android:layout_marginTop="40dp"
         android:textAlignment="center"
         android:textColor="@color/primaryColour"
         android:textSize="34sp" />

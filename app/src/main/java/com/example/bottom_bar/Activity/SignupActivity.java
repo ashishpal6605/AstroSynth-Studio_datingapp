@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,16 +12,17 @@ import com.example.bottom_bar.R;
 
 public class SignupActivity extends AppCompatActivity {
 
-    Button continuebtn;
+    Button emailLogin, phonenoLogin;
+    ImageView fblogin, googlelogin, applelogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        continuebtn = findViewById(R.id.continuebtn);
+        phonenoLogin = findViewById(R.id.number_login);
 
-        continuebtn.setOnClickListener(new View.OnClickListener() {
+        phonenoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignupActivity.this, MobilenoActivity.class);

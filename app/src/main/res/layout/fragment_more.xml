@@ -1,17 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00BCD4"
+    android:background="@color/backgroundcolour"
     tools:context=".fragment.MoreFragment">
 
-    <TextView
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="More Fragment "
-        android:textColor="@color/white"
-        android:textSize="25dp" />
-</FrameLayout>
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/login_greencard"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="-50dp"
+                android:elevation="10dp"
+                android:translationZ="20dp"
+                app:cardBackgroundColor="@color/primaryColour"
+                app:cardCornerRadius="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/profile_logoutbtn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/primaryColour"
+                android:src="@drawable/baseline_logout_24"
+                android:translationZ="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="My Profile"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:translationZ="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/profilecard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="-120dp"
+                android:elevation="10dp"
+                android:outlineAmbientShadowColor="@color/white"
+                android:outlineSpotShadowColor="@color/white"
+                android:translationZ="50dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/login_greencard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/user_profile_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+
+                    <TextView
+                        android:id="@+id/profile_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="80dp"
+                        android:text=" Username "
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/profile_role"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Age 21 "
+                        android:textColor="@color/black"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/profile_username" />
+
+                    <ImageView
+                        android:id="@+id/profile_sitenameimageview"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/baseline_chat_24"
+                        app:layout_constraintEnd_toStartOf="@+id/companyname"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/profile_role"
+                        app:tint="@color/black" />
+
+                    <TextView
+                        android:id="@+id/profile_sitename"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:text=" Need help? "
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_sitenameimageview"
+                        app:layout_constraintStart_toEndOf="@id/profile_sitenameimageview"
+                        app:layout_constraintTop_toTopOf="@id/profile_sitenameimageview" />
+
+                    <ImageView
+                        android:id="@+id/profilecompanyimageview"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginVertical="15dp"
+                        android:src="@drawable/baseline_lock_24"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/companyname"
+                        app:layout_constraintStart_toStartOf="@id/profile_sitenameimageview"
+                        app:layout_constraintTop_toBottomOf="@id/profile_sitenameimageview" />
+
+                    <TextView
+                        android:id="@+id/companyname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:text=" privacy policy "
+                        android:textColor="@color/black"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@id/profilecompanyimageview"
+                        app:layout_constraintStart_toEndOf="@id/profilecompanyimageview"
+                        app:layout_constraintTop_toTopOf="@id/profilecompanyimageview" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/profile_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-40dp"
+                android:translationZ="200dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/profilecard">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/profile_image_card"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/white"
+                    android:elevation="10dp"
+                    app:cardCornerRadius="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/white"
+                    app:strokeWidth="2dp">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/user_profile"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:padding="5dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/girl3" />
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <ImageButton
+                    android:id="@+id/profilecamerabutton"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@color/primaryColour"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/camera_icon"
+                    android:translationZ="300dp"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_image_card"
+                    app:layout_constraintEnd_toEndOf="@id/profile_image_card"
+                    app:tint="@color/black" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/user_profile_company_id_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="5dp"
+                android:translationY="-40dp"
+                android:translationZ="200dp"
+                app:layout_constraintBottom_toBottomOf="@id/profilecard"
+                app:layout_constraintStart_toStartOf="@id/profilecard">
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/username_notification_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:elevation="20dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintTop_toBottomOf="@id/profilecard"
+                app:strokeColor="@color/white"
+                app:strokeWidth=".5dp"
+                tools:ignore="MissingConstraints">
+
+                <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="match_parent"-->
+                <!--                    android:padding="10dp">-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/user_notification_image"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:padding="10dp"-->
+                <!--                        android:src="@drawable/ic_company_24"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/user_notification_textview"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:text="Notification"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="@id/user_notification_image"-->
+                <!--                        app:layout_constraintStart_toEndOf="@id/user_notification_image"-->
+                <!--                        app:layout_constraintTop_toTopOf="@id/user_notification_image" />-->
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/user_about_image"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:padding="10dp"-->
+                <!--                        android:src="@drawable/ic_company_24"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toBottomOf="@id/user_notification_image" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/user_about_textview"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:text="About"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="@id/user_about_image"-->
+                <!--                        app:layout_constraintStart_toEndOf="@id/user_about_image"-->
+                <!--                        app:layout_constraintTop_toTopOf="@id/user_about_image" />-->
+
+
+                <!--                    <ImageView-->
+                <!--                        android:id="@+id/user_setting_image"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:padding="10dp"-->
+                <!--                        android:src="@drawable/ic_company_24"-->
+                <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                <!--                        app:layout_constraintTop_toBottomOf="@id/user_about_image" />-->
+
+                <!--                    <TextView-->
+                <!--                        android:id="@+id/user_setting_textview"-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:text="Setting"-->
+                <!--                        app:layout_constraintBottom_toBottomOf="@id/user_setting_image"-->
+                <!--                        app:layout_constraintStart_toEndOf="@id/user_setting_image"-->
+                <!--                        app:layout_constraintTop_toTopOf="@id/user_setting_image" />-->
+
+                <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

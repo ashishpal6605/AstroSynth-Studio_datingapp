@@ -4,7 +4,6 @@ package com.example.bottom_bar.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -57,8 +56,8 @@ public class MatchedFragmentAdapter extends RecyclerView.Adapter<MatchedFragment
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        ImageButton imageButton1;
-        ImageButton imageButton2;
+        ImageView imageButton1;
+        ImageView imageButton2;
         TextView titleTextView;
 
         ViewHolder(View itemView) {

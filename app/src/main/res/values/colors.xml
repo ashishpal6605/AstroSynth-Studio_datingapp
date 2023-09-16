@@ -6,4 +6,6 @@
     <color name="grey">#708090</color>
 
     <color name="statusBarColour">#E94057</color>
+    <color name="backgroundcolour">#E8DFDF</color>
+
 </resources>

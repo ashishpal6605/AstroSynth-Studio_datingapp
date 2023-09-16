@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundcolour"
     tools:context=".Activity.PassionsActivity">
 
 
@@ -23,8 +24,10 @@
             android:background="@drawable/btncontainer">
 
             <ImageView
+                android:id="@+id/backbutton"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
+                android:padding="10dp"
                 android:src="@drawable/righticon" />
 
         </LinearLayout>
@@ -93,30 +96,38 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:id="@+id/photopraphytxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/photography"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Photography"
                     android:textSize="14sp" />
 
 
                 <TextView
+                    android:id="@+id/shoppingtxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/shooping"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Shopping"
                     android:textSize="14sp" />
@@ -133,30 +144,38 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:id="@+id/karaoketxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/karaoke"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Karaoke"
                     android:textSize="14sp" />
 
 
                 <TextView
+                    android:id="@+id/yoga"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/yoga"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Yoga"
                     android:textSize="14sp" />
@@ -173,30 +192,38 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:id="@+id/cookingtxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/cooking"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Cooking"
                     android:textSize="14sp" />
 
 
                 <TextView
+                    android:id="@+id/tennistxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/tennis"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Tennis"
                     android:textSize="14sp" />
@@ -205,6 +232,7 @@
 
 
             <LinearLayout
+
                 android:id="@+id/layout4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -213,30 +241,38 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:id="@+id/runtxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/run"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Run"
                     android:textSize="14sp" />
 
 
                 <TextView
+                    android:id="@+id/swimmingtxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/swimming"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="swimming"
                     android:textSize="14sp" />
@@ -251,31 +287,39 @@
                 android:orientation="horizontal"
                 android:weightSum="2">
 
+
                 <TextView
+                    android:id="@+id/arttxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/art"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Art"
                     android:textSize="14sp" />
 
-
                 <TextView
+                    android:id="@+id/travelingtxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/traveling"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Traveling"
                     android:textSize="14sp" />
@@ -292,30 +336,38 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:id="@+id/extremetxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/parachute"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Extreme"
                     android:textSize="14sp" />
 
 
                 <TextView
+                    android:id="@+id/musictxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/music"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Music"
                     android:textSize="14sp" />
@@ -332,30 +384,38 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:id="@+id/drinktxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/drink"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Drink"
                     android:textSize="14sp" />
 
 
                 <TextView
+                    android:id="@+id/videogametxt"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:layout_margin="20dp"
                     android:layout_weight="1"
                     android:background="@drawable/txtbg"
+                    android:clickable="true"
                     android:drawableLeft="@drawable/game"
+                    android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
+                    android:onClick="changeColorOnClick"
                     android:padding="10dp"
                     android:text="Video games"
                     android:textSize="14sp" />
@@ -363,6 +423,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/continuebtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"

@@ -4,12 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundcolour"
     tools:context=".fragment.MatchedFragment">
+
+    <LinearLayout
+        android:id="@+id/topbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.7"
+
+            android:fontFamily="@font/headingbold"
+            android:gravity="center"
+            android:text="Matches"
+            android:textColor="@color/black"
+            android:textSize="34sp" />
+
+
+        <LinearLayout
+            android:id="@+id/settingbtn"
+            android:layout_width="0dp"
+            android:layout_height="52dp"
+            android:layout_weight="0.3"
+            android:background="@drawable/btncontainer">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:src="@drawable/setting" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/txtview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/topbar"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/headingregular"
+        android:text="This is a list of people who have liked you and your matches."
+        android:textColor="@color/grey"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/txtview"
+        android:layout_marginTop="20dp"
         android:clipChildren="false"
         android:clipToPadding="false"
         android:padding="8dp"

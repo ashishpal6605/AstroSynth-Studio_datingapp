@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -22,6 +23,8 @@ public class Welcome_Activity extends AppCompatActivity {
     private final Handler handler = new Handler();
     private final int delay = 2000; // Delay in milliseconds (adjust as needed)
     Button createaccount;
+
+    TextView tvSignin;
     private ViewPager viewPager;
     private LinearLayout indicatorLayoutContainer;
     private List<ImageView> indicatorDots;
@@ -50,6 +53,7 @@ public class Welcome_Activity extends AppCompatActivity {
         createaccount = findViewById(R.id.btn_Create_Account);
         viewPager = findViewById(R.id.pagerIntroSlider);
         indicatorLayoutContainer = findViewById(R.id.indicatorLayoutContainer);
+        tvSignin = findViewById(R.id.tvSignin);
 
         List<Integer> imageList = Arrays.asList(R.drawable.girl1, R.drawable.girl2, R.drawable.girl3);
         List<String> textList = Arrays.asList(
@@ -92,6 +96,13 @@ public class Welcome_Activity extends AppCompatActivity {
 
 
         createaccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Welcome_Activity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
+        tvSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Welcome_Activity.this, SignupActivity.class);

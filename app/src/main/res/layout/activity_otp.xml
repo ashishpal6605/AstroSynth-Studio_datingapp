@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundcolour"
     tools:context=".Activity.OtpActivity">
 
     <LinearLayout
@@ -15,6 +16,7 @@
         <ImageView
             android:id="@+id/backbtn"
             android:layout_width="50dp"
+            android:padding="10dp"
             android:layout_height="match_parent"
             android:src="@drawable/righticon" />
     </LinearLayout>
