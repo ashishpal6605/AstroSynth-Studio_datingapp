@@ -123,6 +123,7 @@
 
 
         <TextView
+            android:id="@+id/selectedDateTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -131,7 +132,11 @@
             android:text="Choose birthday date"
             android:textColor="@color/primaryColour"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="showDatePickerDialog"
+            />
 
     </LinearLayout>
 

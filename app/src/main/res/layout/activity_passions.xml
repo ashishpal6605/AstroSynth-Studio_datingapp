@@ -108,7 +108,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Photography"
                     android:textSize="14sp" />
@@ -127,7 +127,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Shopping"
                     android:textSize="14sp" />
@@ -156,7 +156,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Karaoke"
                     android:textSize="14sp" />
@@ -175,7 +175,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Yoga"
                     android:textSize="14sp" />
@@ -204,7 +204,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Cooking"
                     android:textSize="14sp" />
@@ -223,7 +223,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Tennis"
                     android:textSize="14sp" />
@@ -253,7 +253,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Run"
                     android:textSize="14sp" />
@@ -272,7 +272,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="swimming"
                     android:textSize="14sp" />
@@ -301,7 +301,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Art"
                     android:textSize="14sp" />
@@ -319,7 +319,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Traveling"
                     android:textSize="14sp" />
@@ -348,7 +348,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Extreme"
                     android:textSize="14sp" />
@@ -367,7 +367,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Music"
                     android:textSize="14sp" />
@@ -396,7 +396,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Drink"
                     android:textSize="14sp" />
@@ -415,7 +415,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/headingregular"
                     android:gravity="center"
-                    android:onClick="changeColorOnClick"
+                  
                     android:padding="10dp"
                     android:text="Video games"
                     android:textSize="14sp" />

@@ -1,11 +1,14 @@
 package com.example.bottom_bar.Activity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +23,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     Button continuebtn;
 
+    LinearLayout pickdate;
+
+    TextView dateTextview;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +34,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         skippage = findViewById(R.id.skip);
         continuebtn = findViewById(R.id.continuebtn);
+        pickdate= findViewById(R.id.datelayout);
+        dateTextview=findViewById(R.id.selectedDateTxt);
         skippage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,6 +52,9 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
 
 
         // Define the time range as an array of strings
@@ -70,5 +82,20 @@ public class ProfileActivity extends AppCompatActivity {
                 // Do nothing if nothing is selected
             }
         });
+    }
+
+
+    public void showDatePickerDialog(View view) {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // Called when the user selects a date.
+                // You can update the TextView with the selected date here.
+                String selectedDate = day + "/" + (month + 1) + "/" + year;
+                dateTextview.setText(selectedDate);
+            }
+        }, 2023, 0, 1); // Initial date set to January 1, 2023
+
+        datePickerDialog.show();
     }
 }

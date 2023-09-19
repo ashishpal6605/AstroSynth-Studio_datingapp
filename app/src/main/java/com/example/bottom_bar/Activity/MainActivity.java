@@ -54,13 +54,19 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                 }
                 if (i == 2) {
+//                    FragmentManager fragmentManager = getSupportFragmentManager();
+//                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                    fragmentTransaction.replace(R.id.frameLayout, new MessegeFragment());
+//                    fragmentTransaction.commit();
+                }
+                if (i == 3) {
 
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                     fragmentTransaction.replace(R.id.frameLayout, new MessegeFragment());
                     fragmentTransaction.commit();
                 }
-                if (i == 3) {
+                if (i == 4) {
 
                     FragmentManager fragmentManager = getSupportFragmentManager();
                     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
