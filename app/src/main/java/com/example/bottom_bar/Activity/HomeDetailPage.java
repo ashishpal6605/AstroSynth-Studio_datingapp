@@ -33,8 +33,7 @@ public class HomeDetailPage extends AppCompatActivity {
         });
 
 // Define the time range as an array of strings
-        String[] timeRange = {
-                "10:00 AM - 11:00 AM", "11:00 AM-12:00 AM", "12:00 PM-01:00 PM", "01:00 PM-02:00 PM", "02:00 PM-03:00 PM", "03:00 PM-04:00 PM"};
+        String[] timeRange = {"10:00 AM - 11:00 AM", "11:00 AM-12:00 AM", "12:00 PM-01:00 PM", "01:00 PM-02:00 PM", "02:00 PM-03:00 PM", "03:00 PM-04:00 PM"};
 
         // Initialize the Spinner
         Spinner timeSpinner = findViewById(R.id.timeSpinner);

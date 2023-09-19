@@ -5,17 +5,23 @@
     <item
         android:id="@+id/discover"
         android:icon="@drawable/groupicon"
-        android:title="Discover" />
+        android:title="" />
     <item
         android:id="@+id/matches"
         android:icon="@drawable/like"
-        android:title="Matches" />
+        android:title="" />
+
+    <item
+        android:id="@+id/add"
+        android:icon="@drawable/addicon"
+        android:title="" />
+
     <item
         android:id="@+id/message"
         android:icon="@drawable/message"
-        android:title="Message" />
+        android:title="" />
     <item
         android:id="@+id/person"
         android:icon="@drawable/baseline_person_24"
-        android:title="Person" />
+        android:title="" />
 </menu>

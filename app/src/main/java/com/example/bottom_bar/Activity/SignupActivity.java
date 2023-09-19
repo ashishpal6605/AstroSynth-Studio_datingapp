@@ -12,7 +12,7 @@ import com.example.bottom_bar.R;
 
 public class SignupActivity extends AppCompatActivity {
 
-    Button emailLogin, phonenoLogin;
+    Button continues;
     ImageView fblogin, googlelogin, applelogin;
 
     @Override
@@ -20,12 +20,12 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
-        phonenoLogin = findViewById(R.id.number_login);
+        continues = findViewById(R.id.continuebtn);
 
-        phonenoLogin.setOnClickListener(new View.OnClickListener() {
+        continues.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(SignupActivity.this, MobilenoActivity.class);
+                Intent intent = new Intent(SignupActivity.this, OtpActivity.class);
                 startActivity(intent);
             }
         });

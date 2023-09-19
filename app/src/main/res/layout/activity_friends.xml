@@ -39,6 +39,7 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/headingbold"
         android:gravity="center_horizontal"
+        android:textColor="@color/black"
         android:text="Search friend’s"
         android:textSize="24sp" />
 
@@ -55,16 +56,15 @@
         android:textSize="14sp" />
 
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/primaryColour"
         android:fontFamily="@font/headingbold"
-        android:text="Access to a contact list"
+        android:text="Search"
         android:textSize="16sp" />
 
 </RelativeLayout>

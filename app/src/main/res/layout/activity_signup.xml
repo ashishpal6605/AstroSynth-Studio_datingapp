@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundcolour">
@@ -29,30 +30,62 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="35dp"
-            android:fontFamily="@font/headingbold"
+            android:fontFamily="@font/headingregular"
             android:gravity="center"
-            android:text="Sign up to continue"
+            android:text="By clicking “Log in”, you agree with our terms. Learn how we process your data in our Privacy Policy and Cookies Policy."
             android:textColor="@color/black"
-            android:textSize="23sp" />
 
-        <Button
-            android:id="@+id/emailLogin"
-            android:layout_width="300dp"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primaryColour"
-            android:text="Continue with email"
-            android:textColor="@color/white"
-            android:textStyle="bold" />
+            android:layout_below="@id/textview"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/containerbg"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:weightSum="2">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/country_code"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                app:ccpDialog_cornerRadius="20dp"
+                app:ccp_autoDetectCountry="true"
+                app:ccp_defaultNameCode="IND"
+                app:ccp_showFlag="true"
+                app:ccp_showNameCode="true"
+                app:ccp_textSize="10sp" />
+
+            <EditText
+                android:id="@+id/etPhoneNo"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:hint="Mobile No."
+                android:inputType="number"
+                android:maxLength="10"
+                android:maxLines="1"
+                android:textSize="14sp" />
+        </LinearLayout>
 
         <Button
-            android:id="@+id/number_login"
+            android:id="@+id/continuebtn"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/primaryColour"
             android:elevation="15dp"
-            android:text="Use phone number"
-            android:textColor="#DC2E2E"
+            android:text="Continue"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
         <TextView
@@ -81,12 +114,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/google_icon" />
 
-            <ImageView
-                android:id="@+id/applelogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/apple_icon" />
         </LinearLayout>
 
     </LinearLayout>

@@ -6,127 +6,40 @@
     android:background="@color/backgroundcolour"
     tools:context=".fragment.DiscoverFragment">
 
-    <LinearLayout
-        android:id="@+id/topbar"
+    <EditText
+        android:id="@+id/searchbar2"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
-        android:layout_marginLeft="20dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:layout_marginRight="40dp"
+        android:background="@drawable/containerbg"
+        android:drawableLeft="@drawable/search"
+        android:hint="search"
+        android:padding="10dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey" />
 
+    <TextView
+        android:id="@+id/txtview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/searchbar2"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
 
-        <LinearLayout
-            android:id="@+id/backbtn"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/btncontainer"
-            android:backgroundTint="@color/backgroundcolour">
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/headingregular"
+        android:text="Popular pubs near your location......"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
 
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:padding="5dp"
-                android:src="@drawable/righticon" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/homerecycleview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/txtview"
+        android:layout_marginTop="20dp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:orientation="vertical"
-            android:weightSum="2">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:fontFamily="@font/headingbold"
-                android:text="Discover"
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                tools:ignore="Suspicious0dp" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:fontFamily="@font/headingregular"
-                android:text="Chicago, II"
-                android:textColor="@color/grey"
-                tools:ignore="Suspicious0dp" />
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/settingbtn"
-            android:layout_width="0dp"
-            android:layout_height="52dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/btncontainer"
-            android:backgroundTint="@color/backgroundcolour">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:padding="5dp"
-                android:src="@drawable/setting" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-    <ImageView
-        android:id="@+id/imgview"
-        android:layout_width="295dp"
-        android:layout_height="450dp"
-        android:layout_below="@id/topbar"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/discoverimg" />
-
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/likebtn"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/imgview"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/backgroundcolour"
-        android:src="@drawable/likelogo" />
-
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/crossbtn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/imgview"
-        android:layout_alignParentLeft="true"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/fabbackground" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/starbtn"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_below="@id/imgview"
-        android:layout_alignParentRight="true"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="20dp"
-        android:src="@drawable/logostar" />
 </RelativeLayout>

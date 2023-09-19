@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background with normal bottom corners -->
+    <item>
+        <shape>
+            <solid android:color="@color/white" />
+            <corners android:topLeftRadius="70dp" android:topRightRadius="70dp"/><!-- Normal (0dp) radius for bottom corners -->
+        </shape>
+    </item>
 
-    <solid android:color="@color/white" />
-    <corners android:topLeftRadius="70dp" />
-
-</shape>
+    <!-- Top-left and top-right corners with radius -->
+    <item android:right="70dp">
+        <shape>
+            <solid android:color="@color/white" />
+            <corners android:topLeftRadius="70dp" android:topRightRadius="70dp" />
+        </shape>
+    </item>
+</layer-list>

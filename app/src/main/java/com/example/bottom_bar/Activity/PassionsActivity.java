@@ -41,7 +41,7 @@ public class PassionsActivity extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(PassionsActivity.this, HomePage.class);
+                Intent in = new Intent(PassionsActivity.this, MainActivity.class);
                 startActivity(in);
             }
         });
@@ -49,7 +49,7 @@ public class PassionsActivity extends AppCompatActivity {
         continuebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(PassionsActivity.this, HomePage.class);
+                Intent in = new Intent(PassionsActivity.this, FriendsActivity.class);
                 startActivity(in);
             }
         });

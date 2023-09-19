@@ -52,5 +52,8 @@ dependencies {
     implementation 'androidx.viewpager2:viewpager2:1.0.0'//viewpager2
     implementation 'com.makeramen:roundedimageview:2.3.0'//rounded image for viewpager2
 
+    //noinspection GradleCompatible
+//    implementation'com.android.support:design:29.0.0'
+
 
 }
