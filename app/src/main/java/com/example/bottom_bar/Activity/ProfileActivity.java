@@ -2,23 +2,28 @@ package com.example.bottom_bar.Activity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bottom_bar.R;
+import com.github.dhaval2404.imagepicker.ImagePicker;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfileActivity extends AppCompatActivity {
-
 
 
     Button continuebtn;
@@ -27,6 +32,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     TextView dateTextview;
 
+    CircleImageView profileimg;
+    ImageView pickimage;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,21 +42,30 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         continuebtn = findViewById(R.id.continuebtn);
-        pickdate= findViewById(R.id.datelayout);
-        dateTextview=findViewById(R.id.selectedDateTxt);
+        pickdate = findViewById(R.id.datelayout);
+        dateTextview = findViewById(R.id.selectedDateTxt);
+        profileimg = findViewById(R.id.profileImage);
+        pickimage = findViewById(R.id.pickimage);
 
+
+        pickimage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ImagePicker.Companion.with(ProfileActivity.this)
+                        .crop()
+                        .start();
+
+            }
+        });
 
 
         continuebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ProfileActivity.this,PassionsActivity.class);
+                Intent i = new Intent(ProfileActivity.this, PassionsActivity.class);
                 startActivity(i);
             }
         });
-
-
-
 
 
         // Define the time range as an array of strings
@@ -91,5 +108,13 @@ public class ProfileActivity extends AppCompatActivity {
         }, 2023, 0, 1); // Initial date set to January 1, 2023
 
         datePickerDialog.show();
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Uri uri=data.getData();
+        profileimg.setImageURI(uri);
     }
 }

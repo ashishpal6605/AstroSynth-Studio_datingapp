@@ -189,17 +189,18 @@
                 </com.google.android.material.card.MaterialCardView>
 
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/profilecamerabutton"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:background="@color/primaryColour"
+                    android:padding="3dp"
+                    android:background="@drawable/ovalshape"
                     android:scaleType="fitCenter"
                     android:src="@drawable/camera_icon"
                     android:translationZ="300dp"
                     app:layout_constraintBottom_toBottomOf="@id/profile_image_card"
                     app:layout_constraintEnd_toEndOf="@id/profile_image_card"
-                    app:tint="@color/black" />
+                />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -6,20 +6,6 @@
     android:background="@color/backgroundcolour"
     tools:context=".Activity.OtpActivity">
 
-    <LinearLayout
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/btncontainer">
-
-        <ImageView
-            android:id="@+id/backbtn"
-            android:layout_width="50dp"
-            android:padding="10dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/righticon" />
-    </LinearLayout>
 
 
     <TextView
@@ -144,7 +130,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/primaryColour"
-        android:text="continue"
+        android:text="Continue"
         android:textSize="20sp" />
 
 
@@ -154,10 +140,10 @@
         android:layout_below="@id/btnContinue"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/headingbold"
+        android:fontFamily="@font/headingregular"
         android:gravity="center_horizontal"
-        android:text="Resend otp "
+        android:text="Resend OTP "
         android:textColor="@color/primaryColour"
-        android:textSize="20sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>
