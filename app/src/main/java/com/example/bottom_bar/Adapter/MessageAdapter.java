@@ -44,7 +44,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.message_row, viewGroup, false);
+                .inflate(R.layout.lytchat, viewGroup, false);
         return new ViewHolder(view);
     }
 

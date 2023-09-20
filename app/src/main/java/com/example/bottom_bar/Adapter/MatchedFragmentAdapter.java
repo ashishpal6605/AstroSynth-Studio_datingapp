@@ -26,7 +26,7 @@ public class MatchedFragmentAdapter extends RecyclerView.Adapter<MatchedFragment
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_card_view, parent, false);
+                .inflate(R.layout.lytmatch, parent, false);
         return new ViewHolder(view);
     }
 
@@ -41,12 +41,12 @@ public class MatchedFragmentAdapter extends RecyclerView.Adapter<MatchedFragment
 
 
         // Set click listeners for your ImageButtons if needed.
-        holder.imageButton1.setOnClickListener(v -> {
-            // Handle button 1 click here
-        });
-        holder.imageButton2.setOnClickListener(v -> {
-            // Handle button 2 click here
-        });
+//        holder.imageButton1.setOnClickListener(v -> {
+//            // Handle button 1 click here
+//        });
+////        holder.imageButton2.setOnClickListener(v -> {
+//            // Handle button 2 click here
+//        });
     }
 
     @Override
@@ -56,15 +56,15 @@ public class MatchedFragmentAdapter extends RecyclerView.Adapter<MatchedFragment
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        ImageView imageButton1;
-        ImageView imageButton2;
+//        ImageView imageButton1;
+//        ImageView imageButton2;
         TextView titleTextView;
 
         ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
-            imageButton1 = itemView.findViewById(R.id.imageButton1);
-            imageButton2 = itemView.findViewById(R.id.imageButton2);
+//            imageButton1 = itemView.findViewById(R.id.imageButton1);
+//            imageButton2 = itemView.findViewById(R.id.imageButton2);
             titleTextView = itemView.findViewById(R.id.title);
 
         }

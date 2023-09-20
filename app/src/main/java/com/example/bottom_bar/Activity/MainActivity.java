@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bottom_bar.R;
+import com.example.bottom_bar.fragment.AddFragment;
 import com.example.bottom_bar.fragment.DiscoverFragment;
 import com.example.bottom_bar.fragment.MatchedFragment;
 import com.example.bottom_bar.fragment.MessegeFragment;
@@ -54,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                 }
                 if (i == 2) {
-//                    FragmentManager fragmentManager = getSupportFragmentManager();
-//                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//                    fragmentTransaction.replace(R.id.frameLayout, new MessegeFragment());
-//                    fragmentTransaction.commit();
+                    FragmentManager fragmentManager = getSupportFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.frameLayout, new AddFragment());
+                    fragmentTransaction.commit();
                 }
                 if (i == 3) {
 
