@@ -157,6 +157,7 @@
         android:fontFamily="@font/headingbold"
         android:gravity="center_horizontal"
         android:text="Resend otp "
+        android:id="@+id/resend_otp"
         android:textColor="@color/primaryColour"
         android:textSize="20sp" />
 

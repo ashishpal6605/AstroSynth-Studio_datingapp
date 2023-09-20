@@ -10,15 +10,29 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bottom_bar.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+
+import java.util.concurrent.TimeUnit;
 
 public class OtpActivity extends AppCompatActivity {
     Button submitbutton;
     private EditText otp1, otp2, otp3, otp4, otp5, otp6;
-
+    String phoneNumber;
+    TextView resendOtp;
+    String otpId;
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,16 +44,13 @@ public class OtpActivity extends AppCompatActivity {
         otp4 = findViewById(R.id.pin4);
         otp5 = findViewById(R.id.pin5);
         otp6 = findViewById(R.id.pin6);
+        resendOtp = findViewById(R.id.resend_otp);
+        auth=FirebaseAuth.getInstance();
         submitbutton = findViewById(R.id.btnContinue);
+        phoneNumber=getIntent().getStringExtra("mobile").toString();
 
 
-        submitbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(OtpActivity.this, ProfileActivity.class);
-                startActivity(i);
-            }
-        });
+
 
         // Add TextWatchers for OTP fields
         setOtpTextWatcher(otp1, otp2);
@@ -48,6 +59,8 @@ public class OtpActivity extends AppCompatActivity {
         setOtpTextWatcher(otp4, otp5);
         setOtpTextWatcher(otp5, otp6);
         setOtpTextWatcher(otp6, null);
+
+        initiateOtp();
 
 
         // Handle the Enter key press on the last OTP field
@@ -74,6 +87,24 @@ public class OtpActivity extends AppCompatActivity {
                 return false; // Let the system handle the event
             }
         });
+
+
+        submitbutton.setOnClickListener(v -> {
+            if (otp1.getText().toString().isEmpty()&&otp2.getText().toString().isEmpty()&&otp3.getText().toString().isEmpty()
+                    &&otp4.getText().toString().isEmpty()&&otp5.getText().toString().isEmpty()&&otp6.getText().toString().isEmpty()){
+                Toast.makeText(OtpActivity.this, "Blank Field can not be processed", Toast.LENGTH_SHORT).show();
+            } else {
+                String otpField=otp1.getText().toString()+otp2.getText().toString()+otp3.getText().toString()+otp4.getText().toString()+otp5.getText().toString()+otp6.getText().toString();
+                PhoneAuthCredential credential=PhoneAuthProvider.getCredential(otpId,otpField);
+                signInWithPhoneAuthCredential(credential);
+            }
+//                Intent i = new Intent(OtpActivity.this, ProfileActivity.class);
+//                startActivity(i);
+        });
+        resendOtp.setOnClickListener(v->{
+            startActivity(new Intent(this,MainActivity.class));
+        });
+
     }
 
     private void setOtpTextWatcher(final EditText currentEditText, final EditText nextEditText) {
@@ -100,5 +131,41 @@ public class OtpActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void initiateOtp(){
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, this,
+                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    @Override
+                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                         otpId=s;
+                    }
+
+                    @Override
+                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                      signInWithPhoneAuthCredential(phoneAuthCredential);
+                    }
+
+                    @Override
+                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                        Toast.makeText(OtpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+    }
+
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential){
+        auth.signInWithCredential(credential)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                      if (task.isSuccessful()){
+                          startActivity(new Intent(OtpActivity.this,MainActivity.class));
+                          finish();
+                      }else {
+                          Toast.makeText(OtpActivity.this, "SignIn Code Error", Toast.LENGTH_SHORT).show();
+                      }
+                    }
+                });
     }
 }
