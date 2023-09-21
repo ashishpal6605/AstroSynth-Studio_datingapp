@@ -1,5 +1,7 @@
 package com.example.bottom_bar.fragment;
 
+
+import android.content.Intent;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,13 +9,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.bottom_bar.Activity.SignupActivity;
 import com.example.bottom_bar.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -28,6 +33,8 @@ public class MoreFragment extends Fragment {
     public MoreFragment() {
         // Required empty public constructor
     }
+
+    ImageButton logoutBtn;
 
     @Override
     public void onAttach(@NonNull Activity activity) {
@@ -47,6 +54,13 @@ public class MoreFragment extends Fragment {
                         .crop()
                         .start();
             }
+        });
+      logoutBtn=view.findViewById(R.id.profile_logoutbtn);
+
+                logoutBtn.setOnClickListener( v->{
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(requireContext(), SignupActivity.class));
+                    getActivity().finish();
         });
 
         return view;
