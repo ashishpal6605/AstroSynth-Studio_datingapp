@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bottom_bar.Activity.MainActivity;
 import com.example.bottom_bar.Activity.UserProfile;
 import com.example.bottom_bar.Adapter.MatchedFragmentAdapter;
 import com.example.bottom_bar.Model.MatchedModel;
@@ -51,7 +52,7 @@ public class MatchedFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 // Inside your fragment's code
-                Intent intent = new Intent(getActivity(), UserProfile.class);
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
 
 
