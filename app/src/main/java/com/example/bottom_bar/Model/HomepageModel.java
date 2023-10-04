@@ -9,7 +9,7 @@ public class HomepageModel {
     private String barcondition;
     private String barreview;
 
-    public HomepageModel(int image, String barname, String bardistance, String barrating, String barcondition, String barreview) {
+    public HomepageModel( int image, String barname, String bardistance, String barrating, String barcondition, String barreview) {
         this.image = image;
         this.barname = barname;
         this.bardistance = bardistance;

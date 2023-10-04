@@ -1,6 +1,7 @@
 package com.example.bottom_bar.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bottom_bar.Adapter.HomepageAdapter;
 import com.example.bottom_bar.Model.HomepageModel;
 import com.example.bottom_bar.R;
+import com.example.bottom_bar.Response.BaseResponse;
+import com.example.bottom_bar.Response.OtpVerify.PubListResponse;
+import com.example.bottom_bar.network.RetrofitClient;
+import com.example.bottom_bar.service.Api;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class DiscoverFragment extends Fragment {
@@ -22,6 +32,7 @@ public class DiscoverFragment extends Fragment {
     RecyclerView recyclerView;
 
     HomepageAdapter adapter;
+    ArrayList<HomepageModel> itemList;
 
     public DiscoverFragment() {
         // Required empty public constructor
@@ -40,12 +51,40 @@ public class DiscoverFragment extends Fragment {
         recyclerView = view.findViewById(R.id.homerecycleview);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+        itemList = generateItemList();
         recyclerView.setLayoutManager(layoutManager);
-
-
-        ArrayList<HomepageModel> itemList = generateItemList();
-        adapter = new HomepageAdapter(itemList, getContext());
+        adapter=new HomepageAdapter(itemList,requireContext());
         recyclerView.setAdapter(adapter);
+
+
+        Api service= RetrofitClient.getInstance().getApis();
+        Call<BaseResponse<List<PubListResponse>>>  call= service.getPubList();
+
+        call.enqueue(new Callback<BaseResponse<List<PubListResponse>>>() {
+            @Override
+            public void onResponse(Call<BaseResponse<List<PubListResponse>>> call, Response<BaseResponse<List<PubListResponse>>> response) {
+                  if (response.isSuccessful()){
+//                      for (int i=0;i<response.body().getData().size();i++){
+//                          itemList.add(new HomepageModel(response.body().getData().get(i).getGallery(),response.body().getData().get(i).getName(),response.body().getData().get(i).getArea(),
+//                                  response.body().getData().get(i).getRating(),response.body().getData().get(i).getShort_desc(),response.body().getData().get(i).getReview()
+//                          ));
+//                      }
+//                      recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+//                      adapter = new HomepageAdapter(itemList, getContext());
+//                      recyclerView.setAdapter(adapter);
+                      Log.d("The pub list api is success", "onResponse: "+response.body().getStatus());
+                  }
+                  else {
+                      Log.d("The pub list api is Failed", "onResponse: "+response.message());
+                  }
+            }
+
+            @Override
+            public void onFailure(Call<BaseResponse<List<PubListResponse>>> call, Throwable t) {
+                Log.d("The pub list api is Failure", "onResponse: "+t.getLocalizedMessage());
+            }
+        });
 
 
         return view;

@@ -31,365 +31,382 @@
         android:text="Select a few of your interests and let everyone know what you’re passionate about."
         android:textColor="@color/grey"
         android:textSize="14sp" />
-
-    <ScrollView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/txt2">
+        android:layout_marginBottom="100dp"
+        android:layout_below="@id/txt2"
+        android:id="@+id/interest_rv"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_below="@id/txt2">-->
 
-            <LinearLayout
-                android:id="@+id/layout1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txt2"
-                android:orientation="horizontal"
-                android:weightSum="2">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
-                <TextView
-                    android:id="@+id/photopraphytxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/photography"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Photography"
-                    android:textSize="14sp" />
+<!--            <LinearLayout-->
+<!--                android:id="@+id/layout1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/txt2"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2">-->
 
-
-                <TextView
-                    android:id="@+id/shoppingtxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/shooping"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Shopping"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/photopraphytxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/photography"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Photography"-->
+<!--                    android:textSize="14sp" />-->
 
 
-            <LinearLayout
-                android:id="@+id/layout2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/layout1"
-                android:orientation="horizontal"
-                android:weightSum="2">
+<!--                <TextView-->
+<!--                    android:id="@+id/shoppingtxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/shooping"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Shopping"-->
+<!--                    android:textSize="14sp" />-->
 
-                <TextView
-                    android:id="@+id/karaoketxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/karaoke"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Karaoke"
-                    android:textSize="14sp" />
+<!--            </LinearLayout>-->
 
 
-                <TextView
-                    android:id="@+id/yoga"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/yoga"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Yoga"
-                    android:textSize="14sp" />
+<!--            <LinearLayout-->
+<!--                android:id="@+id/layout2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/layout1"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2">-->
 
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/layout3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/layout2"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/cookingtxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/cooking"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Cooking"
-                    android:textSize="14sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/karaoketxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/karaoke"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Karaoke"-->
+<!--                    android:textSize="14sp" />-->
 
 
-                <TextView
-                    android:id="@+id/tennistxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/tennis"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Tennis"
-                    android:textSize="14sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/yoga"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/yoga"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Yoga"-->
+<!--                    android:textSize="14sp" />-->
 
-            </LinearLayout>
-
-
-            <LinearLayout
-
-                android:id="@+id/layout4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/layout3"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <TextView
-                    android:id="@+id/runtxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/run"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Run"
-                    android:textSize="14sp" />
+<!--            </LinearLayout>-->
 
 
-                <TextView
-                    android:id="@+id/swimmingtxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/swimming"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="swimming"
-                    android:textSize="14sp" />
+<!--            <LinearLayout-->
+<!--                android:id="@+id/layout3"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/layout2"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2">-->
 
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/layout5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/layout4"
-                android:orientation="horizontal"
-                android:weightSum="2">
+<!--                <TextView-->
+<!--                    android:id="@+id/cookingtxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/cooking"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Cooking"-->
+<!--                    android:textSize="14sp" />-->
 
 
-                <TextView
-                    android:id="@+id/arttxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/art"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Art"
-                    android:textSize="14sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/tennistxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/tennis"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Tennis"-->
+<!--                    android:textSize="14sp" />-->
 
-                <TextView
-                    android:id="@+id/travelingtxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/traveling"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Traveling"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
+<!--            </LinearLayout>-->
 
 
-            <LinearLayout
-                android:id="@+id/layout6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/layout5"
-                android:orientation="horizontal"
-                android:weightSum="2">
+<!--            <LinearLayout-->
 
-                <TextView
-                    android:id="@+id/extremetxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/parachute"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Extreme"
-                    android:textSize="14sp" />
+<!--                android:id="@+id/layout4"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/layout3"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2">-->
 
-
-                <TextView
-                    android:id="@+id/musictxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/music"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Music"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/runtxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/run"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Run"-->
+<!--                    android:textSize="14sp" />-->
 
 
-            <LinearLayout
-                android:id="@+id/layout7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/layout6"
-                android:orientation="horizontal"
-                android:weightSum="2">
+<!--                <TextView-->
+<!--                    android:id="@+id/swimmingtxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/swimming"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="swimming"-->
+<!--                    android:textSize="14sp" />-->
 
-                <TextView
-                    android:id="@+id/drinktxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/drink"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Drink"
-                    android:textSize="14sp" />
+<!--            </LinearLayout>-->
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/layout5"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/layout4"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2">-->
 
 
-                <TextView
-                    android:id="@+id/videogametxt"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="20dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/txtbg"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/game"
-                    android:focusable="true"
-                    android:fontFamily="@font/headingregular"
-                    android:gravity="center"
-                  
-                    android:padding="10dp"
-                    android:text="Video games"
-                    android:textSize="14sp" />
+<!--                <TextView-->
+<!--                    android:id="@+id/arttxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/art"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Art"-->
+<!--                    android:textSize="14sp" />-->
 
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/travelingtxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/traveling"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Traveling"-->
+<!--                    android:textSize="14sp" />-->
 
-            <Button
-                android:id="@+id/continuebtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="40dp"
-                android:backgroundTint="@color/primaryColour"
-                android:text="Continue" />
+<!--            </LinearLayout>-->
 
-        </LinearLayout>
-    </ScrollView>
 
+<!--            <LinearLayout-->
+<!--                android:id="@+id/layout6"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/layout5"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/extremetxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/parachute"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Extreme"-->
+<!--                    android:textSize="14sp" />-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/musictxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/music"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Music"-->
+<!--                    android:textSize="14sp" />-->
+
+<!--            </LinearLayout>-->
+
+
+<!--            <LinearLayout-->
+<!--                android:id="@+id/layout7"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_below="@id/layout6"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:weightSum="2">-->
+
+<!--                <TextView-->
+<!--                    android:id="@+id/drinktxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/drink"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Drink"-->
+<!--                    android:textSize="14sp" />-->
+
+
+<!--                <TextView-->
+<!--                    android:id="@+id/videogametxt"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="50dp"-->
+<!--                    android:layout_gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:background="@drawable/txtbg"-->
+<!--                    android:clickable="true"-->
+<!--                    android:drawableLeft="@drawable/game"-->
+<!--                    android:focusable="true"-->
+<!--                    android:fontFamily="@font/headingregular"-->
+<!--                    android:gravity="center"-->
+<!--                  -->
+<!--                    android:padding="10dp"-->
+<!--                    android:text="Video games"-->
+<!--                    android:textSize="14sp" />-->
+
+<!--            </LinearLayout>-->
+
+<!--            <Button-->
+<!--                android:id="@+id/continuebtn"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerInParent="true"-->
+<!--                android:layout_marginLeft="40dp"-->
+<!--                android:layout_marginTop="10dp"-->
+<!--                android:layout_marginRight="40dp"-->
+<!--                android:backgroundTint="@color/primaryColour"-->
+<!--                android:text="Continue" />-->
+
+<!--        </LinearLayout>-->
+<!--    </ScrollView>-->
+    <Button
+        android:id="@+id/continuebtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="39dp"
+        android:backgroundTint="@color/primaryColour"
+        android:text="Continue" />
 
 </RelativeLayout>

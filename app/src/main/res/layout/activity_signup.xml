@@ -73,7 +73,6 @@
                 android:background="@drawable/numberlyt"
                 android:hint="Mobile No."
                 android:inputType="number"
-                android:maxLength="11"
                 android:maxLines="1"
                 android:textSize="14sp" />
         </LinearLayout>
