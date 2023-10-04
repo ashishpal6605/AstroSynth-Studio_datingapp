@@ -14,8 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.bottom_bar.Adapter.MyPagerAdapter;
 import com.example.bottom_bar.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +24,7 @@ public class Welcome_Activity extends AppCompatActivity {
     private final Handler handler = new Handler();
     private final int delay = 2000; // Delay in milliseconds (adjust as needed)
     Button createaccount;
-    FirebaseAuth firebaseAuth;
+
 
     TextView tvSignin;
     private ViewPager viewPager;
@@ -57,7 +56,7 @@ public class Welcome_Activity extends AppCompatActivity {
         viewPager = findViewById(R.id.pagerIntroSlider);
         indicatorLayoutContainer = findViewById(R.id.indicatorLayoutContainer);
         tvSignin = findViewById(R.id.tvSignin);
-        firebaseAuth=FirebaseAuth.getInstance();
+
 
         List<Integer> imageList = Arrays.asList(R.drawable.girl1, R.drawable.girl2, R.drawable.girl3);
         List<String> textList = Arrays.asList(
@@ -113,12 +112,7 @@ public class Welcome_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-        // Check condition
-        if (firebaseUser != null) {
-            // When user already sign in redirect to profile activity
-            startActivity(new Intent(this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }
+
     }
 
     private void updateIndicatorDots(int position) {

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
@@ -16,23 +17,28 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bottom_bar.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.FirebaseException;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.PhoneAuthCredential;
-import com.google.firebase.auth.PhoneAuthProvider;
+import com.example.bottom_bar.Request.VerifyOtpRequest;
+import com.example.bottom_bar.Response.BaseResponse;
+import com.example.bottom_bar.Response.OtpVerify.Users;
+import com.example.bottom_bar.network.RetrofitClient;
+import com.example.bottom_bar.service.Api;
+import com.example.bottom_bar.utils.SessionManager;
 
 import java.util.concurrent.TimeUnit;
 
-public class OtpActivity extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class  OtpActivity extends AppCompatActivity {
     Button submitbutton;
     private EditText otp1, otp2, otp3, otp4, otp5, otp6;
-    String phoneNumber;
+    String phoneNumber,getOtp;
     TextView resendOtp;
+    String number;
     String otpId;
-    FirebaseAuth auth;
+    SessionManager manager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +51,49 @@ public class OtpActivity extends AppCompatActivity {
         otp5 = findViewById(R.id.pin5);
         otp6 = findViewById(R.id.pin6);
         resendOtp = findViewById(R.id.resend_otp);
-        auth=FirebaseAuth.getInstance();
+        manager=new SessionManager(this);
+
         submitbutton = findViewById(R.id.btnContinue);
         phoneNumber=getIntent().getStringExtra("mobile").toString();
+        getOtp=getIntent().getStringExtra("otp").toString();
+        Log.d("The number and the otp is", "onCreate: "+phoneNumber+"      "+getOtp);
+
+
+
+            submitbutton.setOnClickListener(v->{
+                    Api service = RetrofitClient.getInstance().getApis();
+                    int OTP= Integer.parseInt(getOtp);
+                    Log.d("The Url is", "onResponse: "+OTP);
+                    Call<BaseResponse<Users>> call=service.verifyOtp(new VerifyOtpRequest(phoneNumber,OTP));
+
+                    call.enqueue(new Callback<BaseResponse<Users>>() {
+                        @Override
+                        public void onResponse(Call<BaseResponse<Users>> call, Response<BaseResponse<Users>> response) {
+                            Log.d("The Url is", "onResponse: "+response.raw().request().url());
+
+                            if (response.isSuccessful()){
+                                Log.d("Verify Otp is successfull", "onResponse: ");
+                                if (response.body().getData().getUser().getProfile_pending()==1){
+                                     manager.setToken(response.body().getData().getUser().getToken() );
+                                    Intent intent=new Intent(OtpActivity.this,ProfileActivity.class);
+                                    intent.putExtra("id",response.body().getData().getUser().getId());
+                                    startActivity(intent);
+                                }
+                                else
+                                    startActivity(new Intent(OtpActivity.this,MainActivity.class));
+                            }
+                            else
+                                Log.d("Verify Otp is Failed", "onResponse: "+response.message());
+                        }
+
+                        @Override
+                        public void onFailure(Call<BaseResponse<Users>> call, Throwable t) {
+                            Log.d("Verify Otp is Failure", "onResponse: "+t.getLocalizedMessage());
+                        }
+                    });
+            });
+
+
 
 
 
@@ -60,7 +106,9 @@ public class OtpActivity extends AppCompatActivity {
         setOtpTextWatcher(otp5, otp6);
         setOtpTextWatcher(otp6, null);
 
-        initiateOtp();
+
+
+
 
 
         // Handle the Enter key press on the last OTP field
@@ -89,21 +137,7 @@ public class OtpActivity extends AppCompatActivity {
         });
 
 
-        submitbutton.setOnClickListener(v -> {
-            if (otp1.getText().toString().isEmpty()&&otp2.getText().toString().isEmpty()&&otp3.getText().toString().isEmpty()
-                    &&otp4.getText().toString().isEmpty()&&otp5.getText().toString().isEmpty()&&otp6.getText().toString().isEmpty()){
-                Toast.makeText(OtpActivity.this, "Blank Field can not be processed", Toast.LENGTH_SHORT).show();
-            } else {
-                String otpField=otp1.getText().toString()+otp2.getText().toString()+otp3.getText().toString()+otp4.getText().toString()+otp5.getText().toString()+otp6.getText().toString();
-                PhoneAuthCredential credential=PhoneAuthProvider.getCredential(otpId,otpField);
-                signInWithPhoneAuthCredential(credential);
-            }
-//                Intent i = new Intent(OtpActivity.this, ProfileActivity.class);
-//                startActivity(i);
-        });
-        resendOtp.setOnClickListener(v->{
-            startActivity(new Intent(this,MainActivity.class));
-        });
+
 
     }
 
@@ -133,39 +167,5 @@ public class OtpActivity extends AppCompatActivity {
         });
     }
 
-    private void initiateOtp(){
-        PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, this,
-                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                    @Override
-                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                         otpId=s;
-                    }
 
-                    @Override
-                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                      signInWithPhoneAuthCredential(phoneAuthCredential);
-                    }
-
-                    @Override
-                    public void onVerificationFailed(@NonNull FirebaseException e) {
-                        Toast.makeText(OtpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
-    }
-
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential){
-        auth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                      if (task.isSuccessful()){
-                          startActivity(new Intent(OtpActivity.this,MainActivity.class));
-                          finish();
-                      }else {
-                          Toast.makeText(OtpActivity.this, "SignIn Code Error", Toast.LENGTH_SHORT).show();
-                      }
-                    }
-                });
-    }
 }
