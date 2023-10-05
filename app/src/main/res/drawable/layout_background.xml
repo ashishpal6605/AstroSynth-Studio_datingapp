@@ -4,7 +4,9 @@
     <item>
         <shape>
             <solid android:color="@color/white" />
-            <corners android:topLeftRadius="70dp" android:topRightRadius="70dp"/><!-- Normal (0dp) radius for bottom corners -->
+            <corners
+                android:topLeftRadius="70dp"
+                android:topRightRadius="70dp" /><!-- Normal (0dp) radius for bottom corners -->
         </shape>
     </item>
 
@@ -12,7 +14,9 @@
     <item android:right="70dp">
         <shape>
             <solid android:color="@color/white" />
-            <corners android:topLeftRadius="70dp" android:topRightRadius="70dp" />
+            <corners
+                android:topLeftRadius="70dp"
+                android:topRightRadius="70dp" />
         </shape>
     </item>
 </layer-list>
