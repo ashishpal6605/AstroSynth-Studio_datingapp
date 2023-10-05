@@ -28,6 +28,8 @@ import com.example.bottom_bar.network.RetrofitClient;
 import com.example.bottom_bar.service.Api;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 
+import java.util.Date;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,7 +47,9 @@ public class ProfileActivity extends AppCompatActivity {
     CircleImageView profileimg;
     ImageView pickimage;
     EditText fName,lName,email,bio;
-    String Name,LastName,Email,Bio;
+    String Name,LastName,Email,Bio,dob,gender;
+
+    String selectedText;
     int id;
 
     @Override
@@ -66,7 +70,42 @@ public class ProfileActivity extends AppCompatActivity {
 
          id =getIntent().getIntExtra("id",0);
 
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // Called when the user selects a date.
+                // You can update the TextView with the selected date here.
+                String selectedDate = day + "-" + (month + 1) + "-" + year;
+                dateTextview.setText(selectedDate);
+            }
+        }, 2023, 0, 1); // Initial date set to January 1, 2023
 
+        datePickerDialog.show();
+
+        String[] timeRange = {"Male", "Female", "Other"};
+
+        // Initialize the Spinner
+        Spinner timeSpinner = findViewById(R.id.timeSpinner);
+
+        // Create an ArrayAdapter and set it to the Spinner
+        ArrayAdapter<String> timeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, timeRange);
+        timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        timeSpinner.setAdapter(timeAdapter);
+
+        // Set an item selection listener for the Spinner
+        timeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Handle the selected time here
+                String selectedText = timeRange[position];
+               Toast.makeText(ProfileActivity.this, "Selected Time: " + selectedText, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // Do nothing if nothing is selected
+            }
+        });
 
         pickimage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,12 +126,9 @@ public class ProfileActivity extends AppCompatActivity {
                LastName=lName.getText().toString();
                Email=email.getText().toString();
                Bio=bio.getText().toString();
+               dob=dateTextview.getText().toString();
 
-                ProfileRequest request=new ProfileRequest();
-                request.setFirstname(Name);
-                request.setLast_name(LastName);
-                request.setEmail(Email);
-                request.setGender("male");
+                ProfileRequest request=new ProfileRequest(Name,LastName,selectedText);
                 Log.d("", "onClick: "+request.getEmail()+request.getFirstname()+request.getLast_name());
                 Call<BaseResponse<ProfileResponse>> call = service.updateProfile(request,id);
 
@@ -100,7 +136,7 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<BaseResponse<ProfileResponse>> call, Response<BaseResponse<ProfileResponse>> response) {
 
-                        Log.d("The Update profile is done", "onResponse: "+response.raw().request().url());
+                        Log.d("The Update profile is loading", "onResponse: "+response.raw().request().url());
                         if (response.isSuccessful()){
                             Log.d("The Update profile is done", "onResponse: ");
                         }
@@ -122,45 +158,12 @@ public class ProfileActivity extends AppCompatActivity {
 
 
         // Define the time range as an array of strings
-        String[] timeRange = {"Male", "Female", "Other"};
 
-        // Initialize the Spinner
-        Spinner timeSpinner = findViewById(R.id.timeSpinner);
-
-        // Create an ArrayAdapter and set it to the Spinner
-        ArrayAdapter<String> timeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, timeRange);
-        timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        timeSpinner.setAdapter(timeAdapter);
-
-        // Set an item selection listener for the Spinner
-        timeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // Handle the selected time here
-                String selectedTime = timeRange[position];
-//                Toast.makeText(HomeDetailPage.this, "Selected Time: " + selectedTime, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // Do nothing if nothing is selected
-            }
-        });
     }
 
 
     public void showDatePickerDialog(View view) {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                // Called when the user selects a date.
-                // You can update the TextView with the selected date here.
-                String selectedDate = day + "/" + (month + 1) + "/" + year;
-                dateTextview.setText(selectedDate);
-            }
-        }, 2023, 0, 1); // Initial date set to January 1, 2023
 
-        datePickerDialog.show();
     }
 
 

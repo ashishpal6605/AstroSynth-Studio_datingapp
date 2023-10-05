@@ -2,7 +2,9 @@ package com.example.bottom_bar.service;
 
 import com.example.bottom_bar.Request.ProfileRequest;
 import com.example.bottom_bar.Request.SaveInterestRequest;
+import com.example.bottom_bar.Request.SendEmailOtpRequest;
 import com.example.bottom_bar.Request.SendOtpRequest;
+import com.example.bottom_bar.Request.VerifyEmailOtpRequest;
 import com.example.bottom_bar.Request.VerifyOtpRequest;
 import com.example.bottom_bar.Response.BaseResponse;
 import com.example.bottom_bar.Response.InterestListResponse;
@@ -27,7 +29,7 @@ public interface Api {
     @POST("verify-otp")
     Call<BaseResponse<Users>> verifyOtp(@Body VerifyOtpRequest verifyOtpRequest);
 
-    @POST("profileUpdate/{id}")
+    @POST("user/profileUpdate/{id}")
     Call<BaseResponse<ProfileResponse>> updateProfile(@Body ProfileRequest profileRequest, @Path("id") int id);
 
     @GET("pub/list")
@@ -38,5 +40,11 @@ public interface Api {
 
     @GET("saveUserInterests/{id}")
     Call<BaseResponse<List<InterestListResponse>>>  saveUserInterest(@Body SaveInterestRequest saveInterestRequest ,@Path("id") int id);
+
+    @POST("sendEmailOtp")
+    Call<BaseResponse<SendOtpResponse>> sendEmailOtp(@Body SendEmailOtpRequest sendOtpRequest);
+
+    @POST("verifyEmailOtp")
+    Call<BaseResponse<Users>> emailVerifyOtp(@Body VerifyEmailOtpRequest verifyEmailOtpRequest);
 
 }

@@ -40,54 +40,13 @@ public class PassionsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passions);
 
-//        skip = findViewById(R.id.skip);
-//        photography = findViewById(R.id.photopraphytxt);
-//        shopping = findViewById(R.id.shoppingtxt);
-//        karaoke = findViewById(R.id.karaoketxt);
-//        yoga = findViewById(R.id.yoga);
-//        cooking = findViewById(R.id.cookingtxt);
-//        tennis = findViewById(R.id.tennistxt);
-//        run = findViewById(R.id.runtxt);
-//        swimming = findViewById(R.id.swimmingtxt);
-//        art = findViewById(R.id.arttxt);
-//        travelling = findViewById(R.id.travelingtxt);
-//        extreme = findViewById(R.id.extremetxt);
-//        music = findViewById(R.id.musictxt);
-//        drink = findViewById(R.id.drinktxt);
-//        videogames = findViewById(R.id.videogametxt);
-       // continuebutton = findViewById(R.id.continuebtn);
-        recyclerView = findViewById(R.id.interest_rv);
 
 
-//        skip.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent in = new Intent(PassionsActivity.this, MainActivity.class);
-//                startActivity(in);
-//            }
-//        });
+
+
+   recyclerView=findViewById(R.id.interest_rv);
         list=new ArrayList<>();
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-//        list.add(new InterestListResponse(1,"Swimming"));
-
-
-
+        adapter=new InterestAdapter(list,PassionsActivity.this);
 
         Api service= RetrofitClient.getInstance().getApis();
         Call<BaseResponse<List<InterestListResponse>>> call=service.getUserInterestList();
@@ -97,7 +56,7 @@ public class PassionsActivity extends AppCompatActivity {
             public void onResponse(Call<BaseResponse<List<InterestListResponse>>> call, Response<BaseResponse<List<InterestListResponse>>> response) {
                 if (response.isSuccessful()){
                       list=response.body().getData();
-                     adapter=new InterestAdapter(list,PassionsActivity.this);
+                       adapter=new InterestAdapter(list,PassionsActivity.this);
                     recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, LinearLayout.VERTICAL));
                     recyclerView.setAdapter(adapter);
                     Log.d("The Interest list api is success", "onResponse: "+response.body().getStatus());
@@ -113,13 +72,20 @@ public class PassionsActivity extends AppCompatActivity {
             }
         });
 
-//        continuebutton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent in = new Intent(PassionsActivity.this, FriendsActivity.class);
-//                startActivity(in);
-//            }
-//        });
+        adapter.setOnClickListener(new InterestAdapter.OnClickListener() {
+            @Override
+            public void onClick(int position, InterestListResponse model,View view) {
+                view.setBackgroundColor(getResources().getColor(R.color.primaryColour));
+            }
+        });
+
+        continuebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(PassionsActivity.this, MainActivity.class);
+                startActivity(in);
+            }
+        });
 
 
     }

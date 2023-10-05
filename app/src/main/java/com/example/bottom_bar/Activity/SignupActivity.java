@@ -19,6 +19,7 @@ import com.example.bottom_bar.Response.BaseResponse;
 import com.example.bottom_bar.Response.SendOtpResponse;
 import com.example.bottom_bar.network.RetrofitClient;
 import com.example.bottom_bar.service.Api;
+import com.example.bottom_bar.utils.SessionManager;
 import com.hbb20.CountryCodePicker;
 
 import retrofit2.Call;
@@ -32,6 +33,7 @@ public class SignupActivity extends AppCompatActivity {
     CountryCodePicker ccp;
     EditText editText;
    String number;
+   SessionManager manager;
 
     @Override
     protected void onStart() {
@@ -44,16 +46,19 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+
         continues = findViewById(R.id.continuebtn);
         editText = findViewById(R.id.etPhoneNo);
         ccp = findViewById(R.id.country_code);
         googlelogin=findViewById(R.id.googlelogin);
         fblogin=findViewById(R.id.fblogin);
+        manager=new SessionManager(this);
+
 
         ccp.registerCarrierNumberEditText(editText);
 
         googlelogin.setOnClickListener(v->{
-            startActivity(new Intent(this,MainActivity.class));
+            startActivity(new Intent(SignupActivity.this,LoginEmailActivity.class));
         });
 
         fblogin.setOnClickListener(v->{
@@ -63,6 +68,7 @@ public class SignupActivity extends AppCompatActivity {
         continues.setOnClickListener(v -> {
             Api service= RetrofitClient.getInstance().getApis();
              number=editText.getText().toString();
+             manager.setPhone(number);
             Log.d("The actual number is", "onCreate: "+number);
             Call<BaseResponse<SendOtpResponse>> data =service.sendOtp(new SendOtpRequest(number));
 
@@ -75,7 +81,7 @@ public class SignupActivity extends AppCompatActivity {
                         Log.d("Send Otp Success", "onResponse: "+response.body().getData().getTestOtp());
                         Toast.makeText(SignupActivity.this, "Your OTP IS it +will be automatically updated just click on continue "+response.body().getData().getTestOtp(), Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(SignupActivity.this, OtpActivity.class);
-                        intent.putExtra("mobile",number);
+                        intent.putExtra("number",200);
                         String otp= String.valueOf(response.body().getData().getTestOtp());
                         intent.putExtra("otp",otp);
                         startActivity(intent);

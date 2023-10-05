@@ -1,6 +1,7 @@
 package com.example.bottom_bar.Response.OtpVerify;
 
 public class TodayTimeSlot {
+    public int id;
     public String start;
     public String end;
 
@@ -18,5 +19,13 @@ public class TodayTimeSlot {
 
     public void setEnd(String end) {
         this.end = end;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.bottom_bar.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,10 +63,13 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (i == 3) {
 
-                    FragmentManager fragmentManager = getSupportFragmentManager();
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.frameLayout, new MessegeFragment());
-                    fragmentTransaction.commit();
+//                    FragmentManager fragmentManager = getSupportFragmentManager();
+//                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//                    fragmentTransaction.replace(R.id.frameLayout, new MessegeFragment());
+//                    fragmentTransaction.commit();
+
+                    Intent intent= new Intent(MainActivity.this,PaymentActivity.class);
+                    startActivity(intent);
                 }
                 if (i == 4) {
 

@@ -32,7 +32,7 @@ public class DiscoverFragment extends Fragment {
     RecyclerView recyclerView;
 
     HomepageAdapter adapter;
-    ArrayList<HomepageModel> itemList;
+    ArrayList<PubListResponse> itemList;
 
     public DiscoverFragment() {
         // Required empty public constructor
@@ -50,12 +50,12 @@ public class DiscoverFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_discover, container, false);
         recyclerView = view.findViewById(R.id.homerecycleview);
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
 
-        itemList = generateItemList();
-        recyclerView.setLayoutManager(layoutManager);
-        adapter=new HomepageAdapter(itemList,requireContext());
-        recyclerView.setAdapter(adapter);
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+//        recyclerView.setLayoutManager(layoutManager);
+//        adapter=new HomepageAdapter(itemList,requireContext());
+//        recyclerView.setAdapter(adapter);
+        itemList=new ArrayList<>();
 
 
         Api service= RetrofitClient.getInstance().getApis();
@@ -65,14 +65,15 @@ public class DiscoverFragment extends Fragment {
             @Override
             public void onResponse(Call<BaseResponse<List<PubListResponse>>> call, Response<BaseResponse<List<PubListResponse>>> response) {
                   if (response.isSuccessful()){
-//                      for (int i=0;i<response.body().getData().size();i++){
-//                          itemList.add(new HomepageModel(response.body().getData().get(i).getGallery(),response.body().getData().get(i).getName(),response.body().getData().get(i).getArea(),
-//                                  response.body().getData().get(i).getRating(),response.body().getData().get(i).getShort_desc(),response.body().getData().get(i).getReview()
-//                          ));
-//                      }
-//                      recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-//                      adapter = new HomepageAdapter(itemList, getContext());
-//                      recyclerView.setAdapter(adapter);
+                      for (int i=0;i<response.body().getData().size();i++){
+                          itemList.add(new PubListResponse(response.body().getData().get(i).getName(),
+                                  response.body().getData().get(i).getArea(),response.body().getData().get(i).getRating(),
+                                  response.body().getData().get(i).getReview(),response.body().getData().get(i).getGallery(),
+                                  response.body().getData().get(i).getShort_desc()));
+                      }
+                      recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+                      adapter = new HomepageAdapter(itemList, getContext());
+                      recyclerView.setAdapter(adapter);
                       Log.d("The pub list api is success", "onResponse: "+response.body().getStatus());
                   }
                   else {
@@ -91,15 +92,15 @@ public class DiscoverFragment extends Fragment {
     }
 
 
-    private ArrayList<HomepageModel> generateItemList() {
-        ArrayList<HomepageModel> itemList = new ArrayList<>();
-        itemList.add(new HomepageModel(R.drawable.bartender, "Cloud house", "5.9km", "3.3", "good", "(1110 reviews)"));
-        itemList.add(new HomepageModel(R.drawable.bartender1, "Cloud house", "6.9km", "2.3", "average", "(1200 reviews)"));
-        itemList.add(new HomepageModel(R.drawable.bartender, "Cloud house", "8.3km", "3.3", "good", "(180 reviews)"));
-        itemList.add(new HomepageModel(R.drawable.bartender1, "Cloud house", "87.9km", "4.0", "good", "(1360 reviews)"));
-        itemList.add(new HomepageModel(R.drawable.bartender, "Cloud house", "9.9km", "4.3", "good", "(120 reviews)"));
-        itemList.add(new HomepageModel(R.drawable.bartender1, "Cloud house", "5.9km", "4.3", "good", "(120 reviews)"));
-
-        return itemList;
-    }
+//    private ArrayList<HomepageModel> generateItemList() {
+//        ArrayList<HomepageModel> itemList = new ArrayList<>();
+//        itemList.add(new HomepageModel(R.drawable.bartender, "Cloud house", "5.9km", "3.3", "good", "(1110 reviews)"));
+//        itemList.add(new HomepageModel(R.drawable.bartender1, "Cloud house", "6.9km", "2.3", "average", "(1200 reviews)"));
+//        itemList.add(new HomepageModel(R.drawable.bartender, "Cloud house", "8.3km", "3.3", "good", "(180 reviews)"));
+//        itemList.add(new HomepageModel(R.drawable.bartender1, "Cloud house", "87.9km", "4.0", "good", "(1360 reviews)"));
+//        itemList.add(new HomepageModel(R.drawable.bartender, "Cloud house", "9.9km", "4.3", "good", "(120 reviews)"));
+//        itemList.add(new HomepageModel(R.drawable.bartender1, "Cloud house", "5.9km", "4.3", "good", "(120 reviews)"));
+//
+//        return itemList;
+//    }
 }

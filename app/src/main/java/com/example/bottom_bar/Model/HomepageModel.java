@@ -3,13 +3,14 @@ package com.example.bottom_bar.Model;
 public class HomepageModel {
 
     private int image;
+    private String photo;
     private String barname;
     private String bardistance;
     private String barrating;
     private String barcondition;
     private String barreview;
 
-    public HomepageModel( int image, String barname, String bardistance, String barrating, String barcondition, String barreview) {
+    public HomepageModel(int image, String barname, String bardistance, String barrating, String barcondition, String barreview) {
         this.image = image;
         this.barname = barname;
         this.bardistance = bardistance;
@@ -64,5 +65,22 @@ public class HomepageModel {
 
     public void setBarreview(String barreview) {
         this.barreview = barreview;
+    }
+
+    public HomepageModel(String photo, String barname, String bardistance, String barrating, String barcondition, String barreview) {
+        this.photo = photo;
+        this.barname = barname;
+        this.bardistance = bardistance;
+        this.barrating = barrating;
+        this.barcondition = barcondition;
+        this.barreview = barreview;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

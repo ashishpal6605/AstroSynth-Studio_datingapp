@@ -17,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bottom_bar.R;
+import com.example.bottom_bar.Request.VerifyEmailOtpRequest;
 import com.example.bottom_bar.Request.VerifyOtpRequest;
 import com.example.bottom_bar.Response.BaseResponse;
 import com.example.bottom_bar.Response.OtpVerify.Users;
@@ -33,10 +34,11 @@ import retrofit2.Response;
 public class  OtpActivity extends AppCompatActivity {
     Button submitbutton;
     private EditText otp1, otp2, otp3, otp4, otp5, otp6;
-    String phoneNumber,getOtp;
+    String phoneNumber,getOtp,email;
     TextView resendOtp;
-    String number;
+
     String otpId;
+    int number;
     SessionManager manager;
 
     @Override
@@ -54,16 +56,51 @@ public class  OtpActivity extends AppCompatActivity {
         manager=new SessionManager(this);
 
         submitbutton = findViewById(R.id.btnContinue);
-        phoneNumber=getIntent().getStringExtra("mobile").toString();
+        phoneNumber= manager.getPhone();
+        email= manager.getEmail();
+        number=getIntent().getIntExtra("number",-1);
         getOtp=getIntent().getStringExtra("otp").toString();
         Log.d("The number and the otp is", "onCreate: "+phoneNumber+"      "+getOtp);
 
 
 
             submitbutton.setOnClickListener(v->{
+                if (number==100){
+                 Api service =RetrofitClient.getInstance().getApis();
+                 int otp= Integer.parseInt(getOtp);
+                    Log.d("Verify mail", "onCreate: "+email+"  "+otp);
+                 Call<BaseResponse<Users>> call=service.emailVerifyOtp(new VerifyEmailOtpRequest(email,otp));
+
+                 call.enqueue(new Callback<BaseResponse<Users>>() {
+                     @Override
+                     public void onResponse(Call<BaseResponse<Users>> call, Response<BaseResponse<Users>> response) {
+                         if (response.isSuccessful()){
+                             Log.d("verify email otp success", "onResponse: "+response.message());
+                             if (response.body().getData().getUser().getProfile_pending()==1){
+                                 manager.setToken(response.body().getData().getUser().getToken() );
+                                 Intent intent=new Intent(OtpActivity.this,PassionsActivity.class);
+                                 intent.putExtra("id",response.body().getData().getUser().getId());
+                                 startActivity(intent);
+                             }
+                             else
+                                 startActivity(new Intent(OtpActivity.this,MainActivity.class));
+                         }
+                         else
+                             Log.d("verify email otp failed", "onResponse: "+response.message());
+                     }
+
+                     @Override
+                     public void onFailure(Call<BaseResponse<Users>> call, Throwable t) {
+                         Log.d("verify email otp failure", "onResponse: "+t.getLocalizedMessage());
+                     }
+                 });
+                }
+
+
+                else if (number==200) {
                     Api service = RetrofitClient.getInstance().getApis();
                     int OTP= Integer.parseInt(getOtp);
-                    Log.d("The Url is", "onResponse: "+OTP);
+                    Log.d("The Url is", "onResponse: "+OTP+"    "+phoneNumber);
                     Call<BaseResponse<Users>> call=service.verifyOtp(new VerifyOtpRequest(phoneNumber,OTP));
 
                     call.enqueue(new Callback<BaseResponse<Users>>() {
@@ -74,9 +111,9 @@ public class  OtpActivity extends AppCompatActivity {
                             if (response.isSuccessful()){
                                 Log.d("Verify Otp is successfull", "onResponse: ");
                                 if (response.body().getData().getUser().getProfile_pending()==1){
-                                     manager.setToken(response.body().getData().getUser().getToken() );
-                                    Intent intent=new Intent(OtpActivity.this,ProfileActivity.class);
-                                    intent.putExtra("id",response.body().getData().getUser().getId());
+                                    manager.setToken(response.body().getData().getUser().getToken() );
+                                    Intent intent=new Intent(OtpActivity.this,PassionsActivity.class);
+                                   // intent.putExtra("id",response.body().getData().getUser().getId());
                                     startActivity(intent);
                                 }
                                 else
@@ -91,6 +128,8 @@ public class  OtpActivity extends AppCompatActivity {
                             Log.d("Verify Otp is Failure", "onResponse: "+t.getLocalizedMessage());
                         }
                     });
+                }
+
             });
 
 
@@ -128,7 +167,7 @@ public class  OtpActivity extends AppCompatActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_DEL && event.getAction() == KeyEvent.ACTION_DOWN) {
                     // Clear the current field and set focus
-                    otp1.setText("");
+                    otp1.setText(getOtp);
                     otp1.requestFocus();
                     return true; // Consume the event
                 }

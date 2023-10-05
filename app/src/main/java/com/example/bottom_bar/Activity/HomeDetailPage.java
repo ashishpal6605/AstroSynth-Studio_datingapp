@@ -2,19 +2,29 @@ package com.example.bottom_bar.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bottom_bar.R;
+import com.example.bottom_bar.Response.OtpVerify.PubListResponse;
+import com.example.bottom_bar.Response.OtpVerify.TodayTimeSlot;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class HomeDetailPage extends AppCompatActivity {
     Button btn;
+    TextView barName,description;
+    ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +33,20 @@ public class HomeDetailPage extends AppCompatActivity {
 
 
         btn = findViewById(R.id.postbutton);
+        image = findViewById(R.id.img);
+        barName=findViewById(R.id.barname);
+        description=findViewById(R.id.descriptiondetail);
+
+        PubListResponse response= (PubListResponse) getIntent().getSerializableExtra("data");
+
+        barName.setText(response.getName());
+        description.setText(response.getDescription());
+        Picasso.get()
+                .load(response.getPhoto()) // Assuming 'image' is an int resource ID
+                .into(image);
+
+//        ArrayList<TodayTimeSlot> var=response.getTodayTimeSlot();
+//        Log.d("time slots", "onCreate: "+var.size());
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override

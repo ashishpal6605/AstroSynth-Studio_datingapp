@@ -14,6 +14,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.bottom_bar.Adapter.MyPagerAdapter;
 import com.example.bottom_bar.R;
+import com.example.bottom_bar.utils.SessionManager;
 
 
 import java.util.ArrayList;
@@ -24,6 +25,8 @@ public class Welcome_Activity extends AppCompatActivity {
     private final Handler handler = new Handler();
     private final int delay = 2000; // Delay in milliseconds (adjust as needed)
     Button createaccount;
+
+    SessionManager manager;
 
 
     TextView tvSignin;
@@ -56,8 +59,11 @@ public class Welcome_Activity extends AppCompatActivity {
         viewPager = findViewById(R.id.pagerIntroSlider);
         indicatorLayoutContainer = findViewById(R.id.indicatorLayoutContainer);
         tvSignin = findViewById(R.id.tvSignin);
+        manager=new SessionManager(this);
 
-
+   if (!manager.getToken().isEmpty()){
+       startActivity(new Intent(Welcome_Activity.this,MainActivity.class));
+   }
         List<Integer> imageList = Arrays.asList(R.drawable.girl1, R.drawable.girl2, R.drawable.girl3);
         List<String> textList = Arrays.asList(
                 "Premium|Sign up today and enjoy the first month\n" +
