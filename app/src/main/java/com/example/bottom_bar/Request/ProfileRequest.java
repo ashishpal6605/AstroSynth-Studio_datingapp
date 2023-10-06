@@ -12,7 +12,7 @@ public class ProfileRequest {
     @SerializedName("email")
     String email;
     @SerializedName("dob")
-    Date date;
+    String date;
     @SerializedName("gender")
     String gender;
     @SerializedName("profilePic")
@@ -44,11 +44,11 @@ public class ProfileRequest {
         this.email = email;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -74,5 +74,11 @@ public class ProfileRequest {
 
     public void setProfile_pending(int profile_pending) {
         this.profile_pending = profile_pending;
+    }
+
+    public ProfileRequest(String firstname, String last_name, String gender) {
+        this.firstname = firstname;
+        this.last_name = last_name;
+        this.gender = gender;
     }
 }

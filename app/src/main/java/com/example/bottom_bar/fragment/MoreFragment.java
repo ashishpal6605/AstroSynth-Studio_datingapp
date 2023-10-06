@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import com.example.bottom_bar.Activity.SignupActivity;
 import com.example.bottom_bar.R;
 
+import com.example.bottom_bar.utils.SessionManager;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -29,7 +30,7 @@ public class MoreFragment extends Fragment {
     RoundedImageView profileimg;
     ImageView pickimagebtn;
     Activity activity;
-
+     SessionManager manager;
     public MoreFragment() {
         // Required empty public constructor
     }
@@ -47,6 +48,7 @@ public class MoreFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_more, container, false);
         profileimg = view.findViewById(R.id.user_profile);
         pickimagebtn = view.findViewById(R.id.profilecamerabutton);
+        manager=new SessionManager(requireContext());
         pickimagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +60,7 @@ public class MoreFragment extends Fragment {
       logoutBtn=view.findViewById(R.id.profile_logoutbtn);
 
                 logoutBtn.setOnClickListener( v->{
+                    manager.setToken("");
                     startActivity(new Intent(requireContext(), SignupActivity.class));
                     getActivity().finish();
         });

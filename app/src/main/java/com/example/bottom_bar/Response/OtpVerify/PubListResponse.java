@@ -1,8 +1,10 @@
 package com.example.bottom_bar.Response.OtpVerify;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
-public class PubListResponse {
+public class PubListResponse implements Serializable {
     public int id;
     public String name;
     public String address;
@@ -22,7 +24,7 @@ public class PubListResponse {
     public int status;
     public Object created_at;
     public Object updated_at;
-    public ArrayList<TodayTimeSlot> todayTimeSlot;
+    public List<TodayTimeSlot> todayTimeSlot;
 
     public int getId() {
         return id;
@@ -176,12 +178,22 @@ public class PubListResponse {
         this.updated_at = updated_at;
     }
 
-    public ArrayList<TodayTimeSlot> getTodayTimeSlot() {
+    public List<TodayTimeSlot> getTodayTimeSlot() {
         return todayTimeSlot;
     }
 
     public void setTodayTimeSlot(ArrayList<TodayTimeSlot> todayTimeSlot) {
         this.todayTimeSlot = todayTimeSlot;
+    }
+
+
+    public PubListResponse(String name, String area, String rating, String review, String photo, String short_desc) {
+        this.name = name;
+        this.area = area;
+        this.rating = rating;
+        this.review = review;
+        this.photo = photo;
+        this.short_desc = short_desc;
     }
 }
 
